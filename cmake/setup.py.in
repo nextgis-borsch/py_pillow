@@ -498,6 +498,7 @@ class pil_build_ext(build_ext):
         feature.lcms = "lcms2"
         feature.webp = "webp"
         feature.webpmux = "webpmux"
+        feature.tiff = "tiff"
 
         # if feature.want('zlib'):
         #     _dbg('Looking for zlib')
