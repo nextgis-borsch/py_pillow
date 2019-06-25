@@ -266,7 +266,7 @@ elseif(WIN32)
     get_lib_path_from_include(${ZLIB_INCLUDE_DIRS} ZLIB_LIBRARY_DIR)
     set(ZLIB_LIBRARY zlib)
 
-    get_lib_path_from_include(${LCMS_INCLUDE_DIRS} LCMS_LIBRARY_DIR)
+    get_lib_path_from_include2(${LCMS_INCLUDE_DIRS} LCMS_LIBRARY_DIR)
     set(LCMS_LIBRARY lcms_i)
 
     get_lib_path_from_include(${WEBP_INCLUDE_DIRS} WEBP_LIBRARY_DIR)
