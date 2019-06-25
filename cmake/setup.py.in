@@ -680,9 +680,9 @@ class pil_build_ext(build_ext):
         _add_flags(ext, '@JPEG_FRAMEWORK@', '@JPEG_FRAMEWORK_DIRS@', '@JPEG_LIBRARY@', '@JPEG_LIBRARY_DIR@')
         _add_flags(ext, '@OPENJPEG_FRAMEWORK@', '@OPENJPEG_FRAMEWORK_DIRS@', '@OPENJPEG_LIBRARY@', '@OPENJPEG_LIBRARY_DIR@')
         _add_flags(ext, '@TIFF_FRAMEWORK@', '@TIFF_FRAMEWORK_DIRS@', '@TIFF_LIBRARY@', '@TIFF_LIBRARY_DIR@')
-        # _add_flags(ext, '@ZLIB_FRAMEWORK@', '@ZLIB_FRAMEWORK_DIRS@', '@ZLIB_LIBRARY@', '@ZLIB_LIBRARY_DIR@')
+        if sys.platform == 'win32'
+            _add_flags(ext, '@ZLIB_FRAMEWORK@', '@ZLIB_FRAMEWORK_DIRS@', '@ZLIB_LIBRARY@', '@ZLIB_LIBRARY_DIR@')
         ext.libraries.append('@ZLIB_LIBRARIES@')
-        # ext.library_dirs.append(library_dirs)
         exts = [(ext)]
 
         #
