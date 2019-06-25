@@ -258,7 +258,7 @@ elseif(WIN32)
     set(JPEG_LIBRARY jpeg)
 
     get_lib_path_from_include2(${OPENJPEG_INCLUDE_DIRS} OPENJPEG_LIBRARY_DIR)
-    set(OPENJPEG_LIBRARY openjpeg)
+    set(OPENJPEG_LIBRARY openjpeg_i)
 
     get_lib_path_from_include(${TIFF_INCLUDE_DIRS} TIFF_LIBRARY_DIR)
     set(TIFF_LIBRARY tiff)
