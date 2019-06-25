@@ -691,21 +691,23 @@ class pil_build_ext(build_ext):
         if feature.freetype:
             # libs = ["freetype"]
             defs = []
-            ext = Extension(
+            ext1 = Extension(
                 "PIL._imagingft", ["src/_imagingft.c"], libraries=libs,
                 define_macros=defs)
             _add_flags(ext, '@FREETYPE_FRAMEWORK@', '@FREETYPE_FRAMEWORK_DIRS@', '@FREETYPE_LIBRARY@', '@FREETYPE_LIBRARY_DIR@')
-            exts.append(ext)
+            _add_flags(ext1, '@FREETYPE_FRAMEWORK@', '@FREETYPE_FRAMEWORK_DIRS@', '@FREETYPE_LIBRARY@', '@FREETYPE_LIBRARY_DIR@')
+            exts.append(ext1)
 
         if feature.lcms:
             extra = []
             if sys.platform == "win32":
                 extra.extend(["user32", "gdi32"])
-            ext = Extension("PIL._imagingcms",
+            ext1 = Extension("PIL._imagingcms",
                                   ["src/_imagingcms.c"],
                                   libraries=extra)
             _add_flags(ext, '@LCMS_FRAMEWORK@', '@LCMS_FRAMEWORK_DIRS@', '@LCMS_LIBRARY@', '@LCMS_LIBRARY_DIR@')
-            exts.append(ext)
+            _add_flags(ext1, '@LCMS_FRAMEWORK@', '@LCMS_FRAMEWORK_DIRS@', '@LCMS_LIBRARY@', '@LCMS_LIBRARY_DIR@')
+            exts.append(ext1)
 
         if feature.webp:
             # libs = [feature.webp]
@@ -715,14 +717,17 @@ class pil_build_ext(build_ext):
                 defs.append(("HAVE_WEBPMUX", None))
                 # libs.append(feature.webpmux)
                 # libs.append(feature.webpmux.replace('pmux', 'pdemux'))
-            ext = Extension("PIL._webp",
+            ext1 = Extension("PIL._webp",
                                   ["src/_webp.c"],
                                   libraries=libs,
                                   define_macros=defs)
             _add_flags(ext, '@WEBP_FRAMEWORK@', '@WEBP_FRAMEWORK_DIRS@', '@WEBP_LIBRARY@', '@WEBP_LIBRARY_DIR@')
             _add_flags(ext, '@WEBPMUX_FRAMEWORK@', '@WEBPMUX_FRAMEWORK_DIRS@', '@WEBPMUX_LIBRARY@', '@WEBPMUX_LIBRARY_DIR@')
             _add_flags(ext, '@WEBPDEMUX_FRAMEWORK@', '@WEBPDEMUX_FRAMEWORK_DIRS@', '@WEBPDEMUX_LIBRARY@', '@WEBPDEMUX_LIBRARY_DIR@')
-            exts.append(ext)
+            _add_flags(ext1, '@WEBP_FRAMEWORK@', '@WEBP_FRAMEWORK_DIRS@', '@WEBP_LIBRARY@', '@WEBP_LIBRARY_DIR@')
+            _add_flags(ext1, '@WEBPMUX_FRAMEWORK@', '@WEBPMUX_FRAMEWORK_DIRS@', '@WEBPMUX_LIBRARY@', '@WEBPMUX_LIBRARY_DIR@')
+            _add_flags(ext1, '@WEBPDEMUX_FRAMEWORK@', '@WEBPDEMUX_FRAMEWORK_DIRS@', '@WEBPDEMUX_LIBRARY@', '@WEBPDEMUX_LIBRARY_DIR@')
+            exts.append(ext1)
 
         # tk_libs = ['psapi'] if sys.platform == 'win32' else []
         # exts.append(Extension("PIL._imagingtk",
